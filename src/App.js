@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from "react";
+import Inputuser from "./component/Inputuser";
+import Buttonc from "./component/Buttonc.js";
+import Show from "./component/Show";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+function App(){
+    const [num1, setNum1]=useState(null)
+    const [num2, setNum2]=useState(null)
+    const [check,setCheck] =useState("")
+    const [message,setMessage] =useState("")
+    const [result, setResult]=useState(null)
+      
+
+    return (
+        <div>
+           <Inputuser  setNum1={setNum1}
+           setNum2={setNum2} /> 
+           <Buttonc  operation ="+" name="+" num1={num1} num2={num2} setCheck={setCheck} setResult={setResult} setMessage={setMessage} />
+           <Buttonc  operation ="-" name="-" num1={num1} num2={num2} setCheck={setCheck} setResult={setResult} setMessage={setMessage}/>
+           <Buttonc  operation ="*" name="*" num1={num1} num2={num2} setCheck={setCheck} setResult={setResult} setMessage={setMessage}/>
+           <Buttonc  operation ="/" name="/" num1={num1} num2={num2} setCheck={setCheck} setResult={setResult} setMessage={setMessage}/>
+           <Show check={check} result={result} message={message}/>
+        </div>
+    )
 }
-
-export default App;
+export default App
